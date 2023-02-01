@@ -1,0 +1,35 @@
+(defcfg)
+
+(defsrc
+  esc    f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del
+  grv    1      2      3      4      5      6      7      8      9      0      -      =      bspc
+  tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+  caps   a      s      d      f      g      h      j      k      l      ;      '      ret
+  lsft   z      x      c      v      b      n      m      ,      .      /      rsft
+  lctl   lmet   lalt   spc    ralt   rmet   rctl   left   down   up     rght   
+  )
+
+(defalias
+  lyr1k (layer-while-held lyr1)
+  thp1 (tap-hold-press 125 135 hangeul lctl)
+  thp2 (tap-hold-press 125 135 spc @lyr1k)
+)
+
+(deflayer base
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _      
+  @thp1  _      _      _      _      _      _      _      _      _      _      _      _     
+  _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      @thp2  _      _      _      _      _      _      _
+)
+
+
+(deflayer lyr1
+  caps   _      _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      up     _      bspc   _      _      _           
+  _      _      _      _      _      spc    bspc   left   down   rght   _      _      _     
+  _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      _      _      _
+)
