@@ -8,122 +8,49 @@
   tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
   caps   a      s      d      f      g      h      j      k      l      ;      '      ret
   lsft   z      x      c      v      b      n      m      ,      .      /      rsft
-  lctl   lmet   lalt   spc    ralt   rmet   rctl   left   up     down   rght   
+  lctl   lmet   lalt   spc    ralt   rmet   rctl   
+  left   up     down   rght   
 )
 
 (defalias
   spcTh (tap-hold-press 150 150 spc (layer-while-held spc_lyr))
 
-  bspTh (tap-hold-press 150 150 bspc (layer-while-held bspc_lyr))
-
-  cpsTh (multi lctl (layer-while-held caps_lyr))
-  ;; cpsTh (tap-hold-press 130 130 lctl (multi lctl (layer-while-held caps_lyr)))
-  cpsThA (tap-hold-press 130 130 lctl lctl)  ;; now it just lctl
-
-  f1Caps (tap-hold 130 130 f1 caps)
-
-  hn_mt (tap-dance 200 (bspc (layer-while-held bspc_lyr)))
-  
-  hn_os (one-shot 500 lctl)
-
+  cpsTh (tap-hold-press 130 135 ralt lctl)
 )
 
 (defalias  ;; HomeRowMod
-  a_hrm (tap-hold-release 150 150 a lsft)
-  s_hrm (tap-hold-release 150 150 s lctl)
-  d_hrm (tap-hold-release 150 150 d lmet)
-  f_hrm (tap-hold-release 150 150 f lalt)
+  a_hrm (tap-hold 110 130 a lsft)
+  s_hrm (tap-hold 110 130 s lctl)
+  d_hrm (tap-hold 110 130 d lmet)
+  f_hrm (tap-hold 110 130 f lalt)
+  j_hrm (tap-hold 110 130 j ralt)
+  k_hrm (tap-hold 110 130 k rmet)
+  l_hrm (tap-hold 110 130 l ralt)
+  ;_hrm (tap-hold 110 130 ; rsft)
 
-  j_hrm (tap-hold-release 150 150 j (layer-while-held j_lyr))
-  k_hrm (tap-hold-release 150 150 k (layer-while-held k_lyr))
-  l_hrm (tap-hold-release 150 150 l rctl)
-  0_hrm (tap-hold-release 150 150 ; rsft)
-
-  q_hrm (tap-hold-release 150 150 q lsft)
-  w_hrm (tap-hold-release 150 150 w lsft)
-  e_hrm (tap-hold-release 150 150 e lmet)
-  r_hrm (tap-hold-release 150 150 r lalt)
-  t_hrm (tap-hold-release 150 150 t lctl)
-)
-
-(defalias  ;; autoShift
-  `_as (tap-hold 120 130 ` S-`)
-  1_as (tap-hold 120 130 1 S-1)
-  2_as (tap-hold 120 130 2 S-2)
-  3_as (tap-hold 120 130 3 S-3)
-  5_as (tap-hold 120 130 5 S-5)
-  6_as (tap-hold 120 130 6 S-6)
-  4_as (tap-hold 120 130 4 S-4)
-  7_as (tap-hold 120 130 7 S-7)
-  8_as (tap-hold 120 130 8 S-8)
-  9_as (tap-hold 120 130 9 S-9)
-  0_as (tap-hold 120 130 0 S-0)
-  -_as (tap-hold 120 130 - S--)
-  =_as (tap-hold 120 130 = S-=)
-  q_as (tap-hold 120 130 q S-q)
-  w_as (tap-hold 120 130 w S-w)
-  e_as (tap-hold 120 130 e S-e)
-  r_as (tap-hold 120 130 r S-r)
-  t_as (tap-hold 120 130 t S-t)
-  y_as (tap-hold 120 130 y S-y)
-  u_as (tap-hold 120 130 u S-u)
-  i_as (tap-hold 120 130 i S-i)
-  o_as (tap-hold 120 130 o S-o)
-  p_as (tap-hold 120 130 p S-p)
-  [_as (tap-hold 120 130 [ S-[)
-  ]_as (tap-hold 120 130 ] S-])
-  \_as (tap-hold 120 130 \ S-\)
-  a_as (tap-hold 120 130 a S-a)
-  s_as (tap-hold 120 130 s S-s)
-  d_as (tap-hold 120 130 d S-d)
-  f_as (tap-hold 120 130 f S-f)
-  g_as (tap-hold 120 130 g S-g)
-  h_as (tap-hold 120 130 h S-h)
-  j_as (tap-hold 120 130 j S-j)
-  k_as (tap-hold 120 130 k S-k)
-  l_as (tap-hold 120 130 l S-l)
-  ;_as (tap-hold 120 130 ; S-;)
-  '_as (tap-hold 120 130 ' S-')
-  z_as (tap-hold 120 130 z S-z)
-  x_as (tap-hold 120 130 x S-x)
-  c_as (tap-hold 120 130 c S-c)
-  v_as (tap-hold 120 130 v S-v)
-  b_as (tap-hold 120 130 b S-b)
-  n_as (tap-hold 120 130 n S-n)
-  m_as (tap-hold 120 130 m S-m)
-  ,_as (tap-hold 120 130 , S-,)
-  ._as (tap-hold 120 130 . S-.)
-  /_as (tap-hold 120 130 / S-/)
-
-  tb_as (tap-hold 120 130 tab S-tab)
 )
 
 (deflayer base
-  _      @f1Caps _      _      _      _      _      _      _      _      _      _      _      _       
-  @`_as  @1_as   @2_as  @3_as  @4_as  @5_as  @6_as  @7_as  @8_as  @9_as  @0_as  @-_as  @=_as  _
-  @tb_as @q_as   @w_as  @e_as  @r_as  @t_as  @y_as  @u_as  @i_as  @o_as  @p_as  @[_as  @]_as  @\_as    
-  @cpsTh @a_as   @s_as  @d_as  @f_as  @g_as  @h_as  @j_as  @k_as  @l_as  @;_as  @'_as  _        
-  _      @z_as   @x_as  @c_as  @v_as  @b_as  @n_as  @m_as  @,_as  @._as  @/_as  _
-  _      _       _      @spcTh _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _    
+  @cpsTh _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      @spcTh _      _      _      
+  _      _      _      _      
 )
 
 (deflayer spc_lyr
   _       _      _      _      _      _      _      _      _      _      _      _      _      _        
   _       _      _      _      _      _      _      _      _      _      _      _      _      _      
-  _       tab    @w_hrm @e_hrm @r_hrm @t_hrm esc    ret    up     _      bspc   bspc   _      _
-  lctl    a      s      d      f      g      spc    left   down   rght   ret    ret    _      
+  _       _      _      _      _      _      esc    ret    up     _      bspc   bspc   _      _
+  @cpsTh  @a_hrm @s_hrm @d_hrm @f_hrm g      spc    left   down   rght   ret    ret    _      
   _       z      x      c      v      b      n      m      _      _      _      _       
-  _       _      _      _      _      _      _      _      _      _      _      
+  _       _      _      _      _      _      _      
+  _       _      _      _      
 )
 
-(deflayer bspc_lyr
-  _       _      _      _      _      _      _      _      _      _      _      _      _      _        
-  _       _      _      _      _      _      _      _      _      _      _      _      _      _      
-  _       tab    @w_hrm @e_hrm @r_hrm @t_hrm esc    ret    up     _      bspc   bspc   _      _
-  lctl    a      s      d      f      g      spc    left   down   rght   ret    ret    _      
-  _       z      x      c      v      b      n      m      _      _      _      _       
-  _       _      _      _      _      _      _      _      _      _      _      
-)
+
 
 (deflayer caps_lyr
   _      _      _      _      _      _      _      _      _      _      _      _      _      _      
@@ -131,7 +58,8 @@
   tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
   _      a      s      d      f      g      h      j      k      l      ;      '      ret
   lsft   z      x      c      v      b      n      m      ,      .      /      rsft
-  lctl   lmet   lalt   @spcTh ralt   rmet   rctl   left   up     down   rght   
+  lctl   lmet   lalt   @spcTh ralt   rmet   rctl   
+  left   up     down   rght   
 )
 
 (deflayer k_lyr
@@ -140,7 +68,8 @@
   _      _      _      _      _      _      _      _      _      _      _      _      _      _    
   _      _      _      _      _      _      _      _      _      _      _      _      _      
   _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      
+  _      _      _      _      
 )
 
 (deflayer j_lyr
@@ -149,5 +78,6 @@
   _      _      _      _      _      _      _      _      _      _      _      _      _      _    
   _      _      _      _      _      _      _      _      _      _      _      _      _      
   _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      
+  _      _      _      _      _      _      _      
+  _      _      _      _      
 )

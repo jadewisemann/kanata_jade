@@ -12,13 +12,13 @@
   )
 
 (defalias
-  spcTh (tap-hold-press 150 150 spc (layer-while-held spc_lyr))
+  spcTh (tap-hold-press 150 135 spc (layer-while-held spc_lyr))
 
   bspTh (tap-hold-press 150 150 bspc (layer-while-held bspc_lyr))
 
-  cpsTh (multi lctl (layer-while-held caps_lyr))
-  ;; cpsTh (tap-hold-press 130 130 lctl (multi lctl (layer-while-held caps_lyr)))
-  cpsThA (tap-hold-press 130 130 lctl lctl)  ;; now it just lctl
+  ;; cpsTh (multi lctl (layer-while-held caps_lyr))
+  cpsTh (tap-hold-press 150 135 hangeul (multi lctl (layer-while-held caps_lyr)))
+  cpsThA (tap-hold-press 150 135 hangeul lctl)
 
   f1Caps (tap-hold 130 130 f1 caps)
 
@@ -111,7 +111,7 @@
   _       _      _      _      _      _      _      _      _      _      _      _      _      _        
   _       _      _      _      _      _      _      _      _      _      _      _      _      _      
   _       tab    @w_hrm @e_hrm @r_hrm @t_hrm esc    ret    up     _      bspc   bspc   _      _
-  lctl    a      s      d      f      g      spc    left   down   rght   ret    ret    _      
+  @cpsThA a      s      d      f      g      spc    left   down   rght   ret    ret    _      
   _       z      x      c      v      b      n      m      _      _      _      _       
   _       _      _      _      _      _      _      _      _      _      _      
 )
